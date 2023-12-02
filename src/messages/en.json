@@ -1,0 +1,15 @@
+{
+    "Header": {
+        "about-us": " About Us",
+        "what-we-do": "What We Do?",
+        "our-services": "Our Services",
+        "contact-us": "Contact Us"
+    },
+    "Main": {
+        "Intro": {
+            "title": "Your Path to <tag>Success</tag> Begins Here",
+            "description": "Client satisfaction is our top priority, and we pride ourselves on delivering personalized solutions that respond to the specific needs of businesses.",
+            "button": "Let’s Talk"
+        }
+    }
+}

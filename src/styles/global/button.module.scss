@@ -1,0 +1,14 @@
+.btn {
+    @apply ltr:text-[20px] ltr:leading-8 rtl:text-[18px] leading-[26px] py-3.5 px-4 border w-[216px] text-start relative;
+
+    &.dark-mode {
+        @apply text-white;
+    }
+    &.light-mode {
+        @apply text-[#020410];
+    }
+
+    svg {
+        @apply absolute bottom-0 right-0 rtl:left-0 rtl:right-auto rtl:-scale-x-100
+    }
+}

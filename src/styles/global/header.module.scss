@@ -1,0 +1,21 @@
+.header {
+    @apply bg-[#020410] pt-4 lg:pt-8 pb-6 lg:pb-4;
+    .inner-container {
+        @apply container flex items-center justify-between py-2;
+        .logo-image {
+            @apply w-[126px] h-auto;
+        }
+
+        .links {
+            @apply hidden md:flex items-center gap-9;
+
+            .link {
+                @apply text-[#818288] hover:text-white cursor-pointer text-[14px] ltr:font-light font-enSans;
+            }
+        }
+
+        .locale-link {
+            @apply text-white text-[14px] leading-[18px]
+        }
+    }
+}
