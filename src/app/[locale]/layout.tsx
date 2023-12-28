@@ -1,33 +1,59 @@
 import { notFound } from 'next/navigation';
 import { ReactNode } from 'react';
 
-import { locales } from '@/config/locales';
 import { fontArgentum, fontKalameh } from '@/config/fonts';
 
 import Header from '@/components/global/Header';
+import Footer from '@/components/global/Footer';
+
+import NextIntlProvider from "@/components/global/NextIntlProvider";
+import { unstable_setRequestLocale } from 'next-intl/server';
+
+import { locales } from '@/config/locales';
 
 import '../globals.css'
 
 interface Props {
   children: ReactNode,
-  params: { [key: string]: string }
+  params: { 
+    locale: string
+  }
 }
 
-const LocaleLayout = ({ children, params: { locale } }: Props) => {
-  if (!locales.includes(locale as any)) notFound();
+export function generateStaticParams() {
+  return [{ locale: "en" }];
+}
+
+const LocaleLayout = async ({ children, params: { locale } }: Props) => {
+  let messages;
+  try {
+    messages = (await import(`../../messages/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
+
+  unstable_setRequestLocale(locale)
 
   return (
     <html
       lang={locale}
       dir={locale === 'en' ? 'ltr' : 'rtl'}
-      className={`${locale === 'en' ? fontArgentum.className : fontKalameh.className}`}
+      className={`${locale === 'en' ? fontArgentum.className : fontKalameh.className} ${fontArgentum.variable} ${fontKalameh.variable}`}
     >
       <body>
         <Header />
+        <NextIntlProvider
+          locale={locale}
+          messages={messages}
+          timeZone="Europe/Berlin"
+          now={new Date()}
+        >
         {children}
+        </NextIntlProvider>
+        <Footer />
       </body>
     </html>
   );
 }
 
-export default LocaleLayout
+export default LocaleLayout;

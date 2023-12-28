@@ -1,17 +1,50 @@
+// 'use client'
+
+// import { useRef, useLayoutEffect } from "react";
+
 import Image from "next/image";
 
-import { getLocale, getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 import s from '@/styles/intro.module.scss'
 
 import Button from "./global/Button";
 
-const Intro = async () => {
-    const locale = await getLocale();
-    const t = await getTranslations('Main.Intro')
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
+
+const Intro = () => {
+    const t = useTranslations('Main.Intro')
+
+    // const imageContainer = useRef<HTMLDivElement>(null);
+
+    // useLayoutEffect(() => {
+    //     const ctx = gsap.context(() => {
+    //         let image = null
+
+    //         if (imageContainer.current) {
+    //             image = imageContainer.current.querySelector('img')
+    //         }
+
+    //         gsap.to(image, {
+    //             y: () => -(image!.offsetHeight - imageContainer.current!.offsetHeight),
+    //             ease: 'none',
+    //             scrollTrigger: {
+    //                 trigger: imageContainer.current,
+    //                 scrub: 2,
+    //                 pin: false,
+    //                 invalidateOnRefresh: true,
+    //                 start: 'top center',
+    //             },
+    //         })
+    //     })
+
+    //     return () => ctx.revert()
+    // })
 
     return (
-        <section className={s['intro-container']}>
+        <section className={s['intro-section']}>
             <div className={s['inner-container']}>
                 <p className={s['title']}>
                     {
@@ -24,8 +57,8 @@ const Intro = async () => {
                 <Button darkMode={true}>{t('button')}</Button>
             </div>
             <div className={s['image-container']}>
-                <div className="container">
-                    <Image src="/intro-img.png" width="1103" height="509" alt="Intro Image" />
+                <div className={s['image-inner-container']}>
+                    <Image priority={true} src="/intro-img.png" width="1103" height="509" alt="Intro Image" />
                 </div>
             </div>
         </section>

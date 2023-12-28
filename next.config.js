@@ -6,7 +6,11 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/styles')]
     },
-    trailingSlash: true
+    compiler: {
+        removeConsole: process.env.NODE_ENV === "production"
+    },
+    trailingSlash: true,
+    output: 'standalone'
 }
 
 module.exports = withNextIntl(nextConfig)

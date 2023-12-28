@@ -2,10 +2,10 @@
     @apply ltr:text-[20px] ltr:leading-8 rtl:text-[18px] leading-[26px] py-3.5 px-4 border w-[216px] text-start relative;
 
     &.dark-mode {
-        @apply text-white;
+        @apply text-white border-[#7184C7];
     }
     &.light-mode {
-        @apply text-[#020410];
+        @apply text-[#020410] border-[#4E5058];
     }
 
     svg {

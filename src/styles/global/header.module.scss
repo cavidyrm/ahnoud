@@ -6,14 +6,6 @@
             @apply w-[126px] h-auto;
         }
 
-        .links {
-            @apply hidden md:flex items-center gap-9;
-
-            .link {
-                @apply text-[#818288] hover:text-white cursor-pointer text-[14px] ltr:font-light font-enSans;
-            }
-        }
-
         .locale-link {
             @apply text-white text-[14px] leading-[18px]
         }

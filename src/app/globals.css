@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 * {
-    transition: 0.2s all ease;
+    /* transition: 0.2s all ease; */
+}
+
+html, body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }

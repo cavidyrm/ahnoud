@@ -1,14 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { getLocale, getTranslations } from "next-intl/server";
+import { useLocale } from "next-intl";
 
 import s from '@/styles/global/header.module.scss'
+import Links from "./Links";
 
-const Header = async () => {
-    const locale = await getLocale()
-    const t = await getTranslations('Header')
-    const items: string[] = ['about-us', 'what-we-do', 'our-services', 'contact-us']
+const Header = () => {
+    const locale = useLocale()
 
     return (
         <header className={s['header']}>
@@ -22,13 +21,7 @@ const Header = async () => {
                     priority={true}
                 />
 
-                <ul className={s['links']}>
-                    {
-                        items.map(item => (
-                            <li className={s['link']}>{t(item)}</li>
-                        ))
-                    }
-                </ul>
+                <Links className="hidden md:flex" />
 
                 <Link className={s['locale-link']} href={locale === 'en' ? '/fa' : '/en'}>{locale === 'en' ? 'EN' : 'FA'}</Link>
             </div>
