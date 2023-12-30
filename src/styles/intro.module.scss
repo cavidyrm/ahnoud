@@ -18,22 +18,22 @@
         }
     }
 
+    // .image-container {
+    //     @apply relative;
+
+    //     &::before {
+    //         @apply absolute bottom-0 right-0 bg-white w-full h-[138px] md:h-1/2;
+    //         content: '';
+    //     }
+
+    //     .image-inner-container {
+    //         @apply container;
+    //         img {
+    //             @apply w-full h-[584px] md:h-auto object-cover relative z-10;
+    //         }
+    //     }
+    // }
     .image-container {
-        @apply relative;
-
-        &::before {
-            @apply absolute bottom-0 right-0 bg-white w-full h-[138px] md:h-1/2;
-            content: '';
-        }
-
-        .image-inner-container {
-            @apply container;
-            img {
-                @apply w-full h-[584px] md:h-auto object-cover relative z-10;
-            }
-        }
-    }
-    /* .image-container {
         @apply relative;
         &::before {
             @apply absolute bottom-0 right-0 bg-white w-full h-[138px] md:h-1/2;
@@ -48,5 +48,5 @@
                 height: 160% !important;
             }
         }
-    } */
+    }
 }

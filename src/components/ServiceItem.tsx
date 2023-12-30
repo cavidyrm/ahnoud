@@ -24,7 +24,7 @@ const ServiceItem = ({ txt }: Props) => {
             </div>
             <Image
                 className={s["image"]}
-                src={locale === "en" ? `/${txt}.png` : `/${txt}-Farsi.png` }
+                src={locale === "en" ? `/${txt}.avif` : `/${txt}-Farsi.avif` }
                 width="562"
                 height="622"
                 alt={txt + "Ahnoud"} 

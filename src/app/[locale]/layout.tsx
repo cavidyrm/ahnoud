@@ -11,6 +11,8 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { locales } from '@/config/locales';
 
+import { GoogleTagManager } from '@next/third-parties/google'
+
 import '../globals.css'
 
 interface Props {
@@ -40,7 +42,20 @@ const LocaleLayout = async ({ children, params: { locale } }: Props) => {
       dir={locale === 'en' ? 'ltr' : 'rtl'}
       className={`${locale === 'en' ? fontArgentum.className : fontKalameh.className} ${fontArgentum.variable} ${fontKalameh.variable}`}
     >
+      <GoogleTagManager gtmId="GTM-TLN72GC2" />
       <body>
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TLN72GC2"
+            height="0"
+            width="0"
+            style={{
+              display: 'none',
+              visibility: 'hidden'
+            }}
+          >
+          </iframe>
+        </noscript>
         <Header />
         <NextIntlProvider
           locale={locale}

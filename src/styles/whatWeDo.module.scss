@@ -3,8 +3,11 @@
     .inner-container {
         @apply container flex lg:items-center justify-between rtl:flex-row-reverse gap-20;
         .image-container {
-            @apply w-4/12 hidden lg:flex;
+            @apply w-4/12 hidden lg:block overflow-hidden;
             aspect-ratio: 9 / 16;
+            img {
+                @apply w-full h-full object-cover;
+            }
         }
         .text-container {
             @apply lg:w-7/12;

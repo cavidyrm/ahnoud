@@ -38,38 +38,26 @@ const WhatWeDo = () => {
                     trigger: section.current,
                     start: 'top top',
                     pin: true,
-                    end: '+=3000px',
-                    scrub: 1,
+                    end: '+=2000px',
+                    scrub: 2,
                 },
                 y: -scrollHeight
             })
 
-            let image = null
             if (imageContainer.current) {
-                image = imageContainer.current.querySelector('img');
-            }
+                const image = imageContainer.current.querySelectorAll('img');
 
-            // gsap.from(image, {
-            //     yPercent: -30,
-            //     ease: 'none'
-            // })
-            // gsap.to(image, {
-                
-            // })
-            // gsap.fromTo(image, {
-            //     scrollTrigger: {
-            //         trigger: section.current,
-            //         start: 'top top',
-            //         pin: true,
-            //         end: '+=3000px',
-            //         scrub: 1,
-            //     },
-            //     yPercent: -30,
-            //     ease: 'none'
-            // }, {
-            //     yPercent: 30,
-            //     ease: 'none'
-            // })
+                gsap.to(image, {
+                    scrollTrigger: {
+                        trigger: section.current,
+                        start: 'top top',
+                        pin: false,
+                        end: '+=2000px',
+                        scrub: 2,
+                    },
+                    yPercent: -200
+                })
+            }
         }, section) 
 
         return () => ctx.revert()
@@ -79,7 +67,9 @@ const WhatWeDo = () => {
         <section ref={section} id="what-we-do" className={s["whatWeDo-section"]}>
             <div id="testing" className={s["inner-container"]}>
                 <div ref={imageContainer} className={s["image-container"]}>
-                    <Image className={s["image"]} src="/whatWeDo.png" width="466" height="816" alt="Ahnoud What We Do?" />
+                    <Image priority={true} className={s["image"]} src="/whatWeDo1.avif" width="466" height="816" alt="Ahnoud What We Do?" />
+                    <Image priority={true} className={s["image"]} src="/whatWeDo2.avif" width="466" height="816" alt="Ahnoud What We Do?" />
+                    <Image priority={true} className={s["image"]} src="/whatWeDo3.avif" width="466" height="816" alt="Ahnoud What We Do?" />
                 </div>
                 <div className={s["text-container"]}>
                     <h6 className={s["title"]}>{ t('title') }</h6>
