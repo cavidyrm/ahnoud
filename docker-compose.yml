@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/ahnoud/ahnoud:latest
+    image: ghcr.io/cavidyrm/ahnoud:latest
     ports:
       - "3000:3000"
     environment:
