@@ -41,7 +41,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           timeout: 60s
           script: |
-            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin || true
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_PAT }}
             cd ${{ secrets.APP_DIR }}
             echo "IMAGE=ghcr.io/${{ github.repository }}:latest" > .env
             docker compose pull
