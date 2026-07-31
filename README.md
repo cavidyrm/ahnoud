@@ -37,16 +37,17 @@ A local server is recommended over `file://` so the fonts, logo, and stock image
 ├── .github/workflows/deploy.yml  # build, push to GHCR, redeploy over SSH
 ├── images/
 │   ├── logo.svg                  # wordmark logo
-│   ├── favicon.svg               # mark on the dark ground
-│   ├── favicon-32.png / favicon-16.png
+│   ├── favicon-32.png / favicon-16.png    # generated from assets/ahnoud-logo-tile.png
 │   ├── apple-touch-icon.png      # 180x180
 │   ├── icon-192.png / icon-512.png   # manifest / Android icons
 │   └── og-card.png               # social share image (1200x630)
+├── assets/
+│   └── ahnoud-logo-tile.png      # icon master (source only, excluded from the image)
 ├── uploads/                      # working references (excluded from the image)
 └── README.md
 ```
 
-Everything in the repo root except `uploads/`, `*.md`, and the compose/CI files ships into the container (see `.dockerignore`).
+Everything in the repo root except `assets/`, `uploads/`, `*.md`, and the compose/CI files ships into the container (see `.dockerignore`). Favicons are pre-generated into `images/`, so the build needs no image tooling.
 
 ---
 

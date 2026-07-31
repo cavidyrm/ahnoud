@@ -6,6 +6,6 @@
 *.md
 Dockerfile
 docker-compose.yml
+assets
 uploads
-handoff
 screenshots

@@ -4,7 +4,7 @@
   "description": "Design and engineering studio. Brand identity, digital design, web development, AI agents, and infrastructure.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0c0d10",
+  "background_color": "#2c2c2c",
   "theme_color": "#0c0d10",
   "icons": [
     {
@@ -22,11 +22,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    },
-    {
-      "src": "/images/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
     }
   ]
 }
