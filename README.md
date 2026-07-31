@@ -1,6 +1,6 @@
-# Ahnoud Tech — Landing Page
+# Ahnoud Tech, Landing Page
 
-A single-page marketing site for **Ahnoud Tech**, a design-and-engineering studio built around one idea: the brand and the build should never be separated. Two in-house teams — **Kinomad Studio** (design) and **Draft Labs** (engineering) — under one roof.
+A single-page marketing site for **Ahnoud Tech**, a design-and-engineering studio built around one idea: the brand and the build should never be separated. Two in-house teams, **Kinomad Studio** (design) and **Draft Labs** (engineering), under one roof.
 
 The page is built as a **Design Component** (`.dc.html`): a self-contained HTML file with an inline template and a logic class. It opens directly in a browser — no build step, no bundler, no dependencies to install.
 
@@ -24,21 +24,42 @@ A local server is recommended over `file://` so the fonts, logo, and stock image
 
 ```
 .
-├── Ahnoud Tech Landing.dc.html   # the page (template + logic)
-├── index.html                    # deploy copy of the landing page
-├── 404.html                      # brand-matched not-found page
+├── Ahnoud Tech Landing.dc.html   # the page (copied to index.html in the image)
+├── 404.html                      # brand-matched not-found page (noindex)
+├── support.js                    # Design Component runtime (vendored, do not edit)
+├── image-slot.js                 # drag-and-drop image placeholder component
 ├── robots.txt                    # crawler rules + sitemap pointer
 ├── sitemap.xml                   # single-URL sitemap
-├── support.js                    # Design Component runtime (do not edit)
-├── image-slot.js                 # drag-and-drop image placeholder component
+├── site.webmanifest              # PWA manifest (name, icons, theme)
+├── Caddyfile                     # static server config: 404s, caching, headers
+├── Dockerfile                    # caddy:alpine image, renames the .dc.html to index.html
+├── docker-compose.yml            # Traefik-routed service on the server
+├── .github/workflows/deploy.yml  # build, push to GHCR, redeploy over SSH
 ├── images/
-│   ├── logo.svg                  # Ahnoud Tech wordmark logo
-│   └── og-card.png               # social share image (Open Graph / Twitter)
-├── uploads/                      # source materials & references (not shipped)
+│   ├── logo.svg                  # wordmark logo
+│   ├── favicon.svg               # mark on the dark ground
+│   ├── favicon-32.png / favicon-16.png
+│   ├── apple-touch-icon.png      # 180x180
+│   ├── icon-192.png / icon-512.png   # manifest / Android icons
+│   └── og-card.png               # social share image (1200x630)
+├── uploads/                      # working references (excluded from the image)
 └── README.md
 ```
 
-Only `Ahnoud Tech Landing.dc.html`, `404.html`, `support.js`, `image-slot.js`, and `images/logo.svg` are needed to run the site. The `uploads/` folder holds working references and can be excluded from any deploy.
+Everything in the repo root except `uploads/`, `*.md`, and the compose/CI files ships into the container (see `.dockerignore`).
+
+---
+
+## Deploy
+
+```bash
+docker build -t ghcr.io/cavidyrm/ahnoud-tech:latest .
+docker run --rm -p 8080:80 ghcr.io/cavidyrm/ahnoud-tech:latest   # smoke test on :8080
+```
+
+Pushing to `main` runs `.github/workflows/deploy.yml`: it builds the image, pushes it to GHCR, then SSHes to the server and runs `docker compose pull && docker compose up -d` in `APP_DIR`. Required secrets: `SERVER_HOST`, `SERVER_USER`, `SERVER_SSH_KEY`, `GHCR_TOKEN`, `APP_DIR`.
+
+The `Dockerfile` renames `Ahnoud Tech Landing.dc.html` to `index.html` and installs `Caddyfile` at `/etc/caddy/Caddyfile`, which handles gzip/zstd compression, immutable caching for `support.js` / `image-slot.js` / `images/`, revalidated HTML, security headers, and rewrites any 404 to `404.html`. Traefik terminates TLS and redirects `http` and `www` to `https://ahnoudtech.com`.
 
 ---
 
@@ -85,15 +106,15 @@ The hero, team, founder, and CTA visuals are pulled from [Unsplash](https://unsp
 
 ## SEO
 
-The head of the page carries the essentials: title + meta description, canonical URL, Open Graph / Twitter card tags (using `images/og-card.png`), favicon, theme color, and JSON-LD `Organization` schema. The hero includes a visually-hidden `h1`; sections use `h2`/`h3`. `robots.txt` and `sitemap.xml` are included.
+In the page head: title, meta description, canonical, robots directives (`max-image-preview:large`), Open Graph and Twitter cards with `images/og-card.png` plus alt text, theme color, color-scheme, PWA/apple app tags, the full favicon set, and a JSON-LD `@graph` (Organization with Kinomad Studio and Draft Labs as sub-organizations, WebSite, WebPage, and a ProfessionalService OfferCatalog of all six services). The hero carries a visually-hidden `h1`; sections use `h2`/`h3`. `robots.txt` and `sitemap.xml` are at the root.
 
 **Before launch, the developer should:**
 
-1. Replace `https://ahnoudtech.com` in the canonical, OG, sitemap, and JSON-LD with the real production domain.
-2. Deploy `index.html` at the domain root. All page copy exists in the initial HTML (the template is inline), so crawlers see the full content even without executing JS; for maximum coverage, consider prerendering the page (e.g. `puppeteer` snapshot at build time) so the fully rendered DOM is served.
-3. Replace the Unsplash placeholder images with optimized, self-hosted assets (WebP/AVIF, sized to the layout) and give each a descriptive `alt`/`aria-label`.
-4. Serve over HTTPS with long-lived caching for `support.js`, `image-slot.js`, and `images/`.
-5. Wire the server to return `404.html` (it is marked `noindex`).
+1. Replace `https://ahnoudtech.com` in the canonical, OG/Twitter, sitemap, and JSON-LD if the production domain differs.
+2. Fill the JSON-LD `sameAs` array with the studio's social profile URLs.
+3. Replace the Unsplash placeholder images with optimized, self-hosted assets (WebP/AVIF, sized to the layout) and credit or license them properly.
+4. All page copy is inline in the HTML, so crawlers see the content without JS; for maximum coverage consider a prerender snapshot at build time.
+5. Verify `404.html` is served for unknown paths (the `Caddyfile` handles this) and submit the sitemap in Search Console.
 
 ---
 
@@ -105,4 +126,4 @@ The head of the page carries the essentials: title + meta description, canonical
 
 ---
 
-© 2026 Ahnoud Tech. Design & Engineering.
+© 2026 Ahnoud Tech. Design and Engineering.

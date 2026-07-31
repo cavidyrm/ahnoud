@@ -3,33 +3,113 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ahnoud Tech — Design &amp; Engineering Studio</title>
+<title>Ahnoud Tech · Design and Engineering Studio</title>
 <meta name="description" content="Ahnoud Tech is a design and engineering studio. Two teams under one roof: Kinomad Studio for brand identity and digital design, Draft Labs for web development, AI agents, and infrastructure.">
 <link rel="canonical" href="https://ahnoudtech.com/">
-<link rel="icon" type="image/svg+xml" href="images/logo.svg">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Ahnoud Tech">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0c0d10">
+<meta name="format-detection" content="telephone=no">
+
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="images/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Ahnoud Tech">
+<meta name="application-name" content="Ahnoud Tech">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ahnoud Tech">
-<meta property="og:title" content="Ahnoud Tech — Design &amp; Engineering Studio">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Ahnoud Tech · Design and Engineering Studio">
 <meta property="og:description" content="The brand and the build, together. Brand identity, digital design, web development, AI agents, and infrastructure under one roof.">
 <meta property="og:url" content="https://ahnoudtech.com/">
 <meta property="og:image" content="https://ahnoudtech.com/images/og-card.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ahnoud Tech, the brand and the build, together.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ahnoud Tech — Design &amp; Engineering Studio">
+<meta name="twitter:title" content="Ahnoud Tech · Design and Engineering Studio">
 <meta name="twitter:description" content="The brand and the build, together. Brand identity, digital design, web development, AI agents, and infrastructure under one roof.">
 <meta name="twitter:image" content="https://ahnoudtech.com/images/og-card.png">
+<meta name="twitter:image:alt" content="Ahnoud Tech, the brand and the build, together.">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ahnoud Tech",
-  "description": "Design and engineering studio. Kinomad Studio for brand identity and digital design; Draft Labs for web development, AI agents, and infrastructure.",
-  "url": "https://ahnoudtech.com/",
-  "logo": "https://ahnoudtech.com/images/logo.svg",
-  "email": "hello@ahnoudtech.com",
-  "sameAs": []
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ahnoudtech.com/#organization",
+      "name": "Ahnoud Tech",
+      "alternateName": ["Kinomad Studio", "Draft Labs"],
+      "description": "Design and engineering studio. Kinomad Studio for brand identity and digital design; Draft Labs for web development, AI agents, and infrastructure.",
+      "url": "https://ahnoudtech.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ahnoudtech.com/images/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://ahnoudtech.com/images/og-card.png",
+      "email": "hello@ahnoudtech.com",
+      "slogan": "The brand and the build, together.",
+      "sameAs": [],
+      "subOrganization": [
+        { "@type": "Organization", "name": "Kinomad Studio", "url": "https://kinomadstudio.com" },
+        { "@type": "Organization", "name": "Draft Labs" }
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "hello@ahnoudtech.com",
+        "availableLanguage": ["English"]
+      }]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ahnoudtech.com/#website",
+      "url": "https://ahnoudtech.com/",
+      "name": "Ahnoud Tech",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://ahnoudtech.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ahnoudtech.com/#webpage",
+      "url": "https://ahnoudtech.com/",
+      "name": "Ahnoud Tech · Design and Engineering Studio",
+      "isPartOf": { "@id": "https://ahnoudtech.com/#website" },
+      "about": { "@id": "https://ahnoudtech.com/#organization" },
+      "primaryImageOfPage": "https://ahnoudtech.com/images/og-card.png"
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://ahnoudtech.com/#service",
+      "name": "Ahnoud Tech",
+      "url": "https://ahnoudtech.com/",
+      "parentOrganization": { "@id": "https://ahnoudtech.com/#organization" },
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3D Visualization and Animation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agents and Automation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Application DevOps" } }
+        ]
+      }
+    }
+  ]
 }
 </script>
 <script src="./support.js"></script>
@@ -73,6 +153,16 @@ footer nav a:hover { background-size: 100% 100% !important; color: #16171b !impo
 }
 [data-r="menu-item"]:hover { background-size: 100% 100% !important; color: #16171b !important; }
 [data-r="stages"] > div:last-of-type { border-right: 1px solid rgba(233,231,225,0.18); }
+
+/* ---- touch devices: keep vertical swipe alive everywhere, tap replaces hover ---- */
+image-slot, canvas[data-halftone], [data-r="halftone-strip"], [data-r="hero-panel"], [data-r="team-visual"],
+[data-r="aboutus-rail"], [data-r="svc-row"], [data-r="stages"] > div, [data-r="cta"] { touch-action: pan-y pinch-zoom; }
+@media (hover: none) {
+  [data-r="svc-row"]:active { background-size: 100% 100% !important; color: #16171b !important; padding-left: 24px !important; }
+  footer nav a:active { background-size: 100% 100% !important; color: #16171b !important; padding-left: 20px !important; }
+  [data-r="menu-item"]:active { background-size: 100% 100% !important; color: #16171b !important; }
+  [data-r="stages"] > div { -webkit-tap-highlight-color: transparent; }
+}
 
 /* ---- responsive: tablet (real viewport) ---- */
 @media (min-width: 701px) and (max-width: 1024px) {
@@ -670,8 +760,19 @@ class Component extends DCLogic {
       let tx = -99999, ty = -99999, mx = -99999, my = -99999;
       this._htMove = (e) => { const r = cv.getBoundingClientRect(); tx = e.clientX - r.left; ty = e.clientY - r.top; };
       this._htLeave = () => { tx = -99999; ty = -99999; };
+      this._htTouch = (e) => {
+        const t = e.touches && e.touches[0];
+        if (!t) return;
+        const r = cv.getBoundingClientRect();
+        tx = t.clientX - r.left; ty = t.clientY - r.top;
+      };
       wrap.addEventListener("mousemove", this._htMove);
       wrap.addEventListener("mouseleave", this._htLeave);
+      // touch: the strip reacts to a finger too, and never swallows the page scroll
+      wrap.addEventListener("touchstart", this._htTouch, { passive: true });
+      wrap.addEventListener("touchmove", this._htTouch, { passive: true });
+      wrap.addEventListener("touchend", this._htLeave, { passive: true });
+      wrap.addEventListener("touchcancel", this._htLeave, { passive: true });
       this._htWrap = wrap;
       const loop = (t) => {
         this._htRaf = requestAnimationFrame(loop);
@@ -704,6 +805,32 @@ class Component extends DCLogic {
       this._htRaf = requestAnimationFrame(loop);
     };
     startHalftone();
+
+    // horizontal swipe on touch: stats card and the stage accordion step through
+    this._swipes = [];
+    const bindSwipe = (sel, onSwipe) => {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      let sx = 0, sy = 0, live = false;
+      const down = (e) => { const t = e.touches[0]; if (!t) return; sx = t.clientX; sy = t.clientY; live = true; };
+      const up = (e) => {
+        if (!live) return;
+        live = false;
+        const t = (e.changedTouches && e.changedTouches[0]) || null;
+        if (!t) return;
+        const dx = t.clientX - sx, dy = t.clientY - sy;
+        // only a clearly horizontal flick counts; vertical stays a page scroll
+        if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.6) onSwipe(dx < 0 ? 1 : -1);
+      };
+      el.addEventListener("touchstart", down, { passive: true });
+      el.addEventListener("touchend", up, { passive: true });
+      this._swipes.push([el, down, up]);
+    };
+    this._bindSwipes = () => {
+      bindSwipe('[data-r="aboutus-rail"]', (d) => this.setState(s => ({ statIdx: (s.statIdx + (d > 0 ? 1 : 2)) % 3 })));
+      bindSwipe('[data-r="stages"]', (d) => this.setState(s => ({ openStage: Math.max(0, Math.min(3, (s.openStage < 0 ? 0 : s.openStage) + d)) })));
+    };
+    this._bindSwipes();
   }
 
   componentWillUnmount() {
@@ -718,7 +845,15 @@ class Component extends DCLogic {
     if (this._htWrap) {
       this._htWrap.removeEventListener("mousemove", this._htMove);
       this._htWrap.removeEventListener("mouseleave", this._htLeave);
+      this._htWrap.removeEventListener("touchstart", this._htTouch);
+      this._htWrap.removeEventListener("touchmove", this._htTouch);
+      this._htWrap.removeEventListener("touchend", this._htLeave);
+      this._htWrap.removeEventListener("touchcancel", this._htLeave);
     }
+    (this._swipes || []).forEach(([el, down, up]) => {
+      el.removeEventListener("touchstart", down);
+      el.removeEventListener("touchend", up);
+    });
   }
 
   _closeMenu() {

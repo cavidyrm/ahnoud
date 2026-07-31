@@ -1,7 +1,7 @@
 # Traefik routes by domain; host port is for direct IP access (preview / before DNS).
 #
 #   Domain:  https://ahnoudtech.com
-#   Direct:  http://<server-ip>:3002
+#   Direct:  http://<server-ip>:3000
 #
 # On the server: copy to APP_DIR (e.g. /root/ahnoud). Set GitHub secret APP_DIR to the same path.
 services:
